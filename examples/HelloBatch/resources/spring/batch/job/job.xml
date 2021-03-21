@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:batch="http://www.springframework.org/schema/batch"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                http://www.springframework.org/schema/batch http://www.springframework.org/schema/batch/spring-batch.xsd
+                http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+	<import resource="../config/context.xml" />
+
+	<!-- Configurazione file properties -->
+	<util:properties id="nodeProperty" location="classpath:config/config.properties" />
+    <context:property-placeholder properties-ref="nodeProperty" />
+    <context:component-scan base-package="org.ky.examples.spring.batch" />
+    
+    <!-- Configurazione JOBS -->
+    <batch:job id="myJob" xmlns="http://www.springframework.org/schema/batch">
+        <batch:step id="myStep" >
+            <batch:tasklet>
+				<batch:chunk reader="csvFileItemReader" writer="customWriter"
+					commit-interval="500">
+				</batch:chunk>
+			</batch:tasklet>
+        </batch:step>
+    </batch:job>
+
+	<!-- Reader bean for our simple CSV example -->
+	<bean id="csvFileItemReader" class="org.springframework.batch.item.file.FlatFileItemReader" scope="step">
+
+		<!--property name="resource" value="classpath:csv/input/estrazioni.csv" /-->
+		<!-- property name="resource" value="file:#{jobParameters['filename']}" /-->
+		<property name="resource" value="file:C:\ccs\csv\estrazioni.csv"/>
+		
+		<!-- Skip the first line of the file because this is the header that defines the fields -->
+		<property name="linesToSkip" value="0" />
+		
+		<!-- Defines how we map lines to objects -->
+		<property name="lineMapper">
+			<bean class="org.springframework.batch.item.file.mapping.DefaultLineMapper">
+				
+				<!-- The lineTokenizer divides individual lines up into units of work -->
+				<property name="lineTokenizer">
+					<bean
+						class="org.springframework.batch.item.file.transform.DelimitedLineTokenizer">
+						
+						<!-- Names of the CSV columns -->
+						<property name="names" value="Nome,Cognome,Email" />
+					</bean>
+				</property>
+				
+				<!-- The fieldSetMapper maps a line in the file to a Product object -->
+				<property name="fieldSetMapper">
+				    <bean class="org.ky.examples.spring.batch.BeanFieldSetMapper" />
+				</property>
+			</bean>
+		</property>
+
+	</bean>
+
+	<!-- Custom item processor -->
+	<bean id="customWriter" class="org.ky.examples.spring.batch.CustomItemWriter" />
+
+	<!-- Custom item processor -->
+	<bean id="customProcessor" class="org.ky.examples.spring.batch.CustomItemProcessor" />
+	
+</beans>

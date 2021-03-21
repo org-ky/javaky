@@ -1,0 +1,26 @@
+package org.ky.examples.spring.batch;
+
+import org.springframework.batch.item.file.mapping.FieldSetMapper;
+import org.springframework.batch.item.file.transform.FieldSet;
+import org.springframework.validation.BindException;
+
+import org.ky.examples.spring.batch.model.Bean;
+
+/**
+ * Builds a Bean object from a row in the CSV file (as a set of fields)
+ */
+public class BeanFieldSetMapper implements FieldSetMapper<Bean> {
+
+	@Override
+	public Bean mapFieldSet(FieldSet fieldSet) throws BindException {
+		
+		Bean estr = new Bean();
+		estr.setFirstname(fieldSet.readString(0));
+		estr.setLastname(fieldSet.readString(1));
+		estr.setEmail(fieldSet.readString(2));
+		
+		return estr;
+		
+	}
+
+}

@@ -1,0 +1,23 @@
+package org.ky.examples.spring.batch;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.batch.item.ItemWriter;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import org.ky.examples.spring.batch.model.Bean;
+
+public class CustomItemWriter implements ItemWriter {
+
+	//Logging
+	private Log m_log = LogFactory.getLog(CustomItemWriter.class);
+	
+	@Override
+	public void write(List estrazioni) throws Exception {
+		System.out.println("Batch completato");
+	}
+
+}

@@ -1,0 +1,25 @@
+package org.ky.examples.spring.batch;
+
+import java.util.ArrayList;
+import org.springframework.batch.item.ItemProcessor;
+import org.ky.examples.spring.batch.model.Bean;
+
+public class CustomItemProcessor implements ItemProcessor<Bean, Bean> {
+
+	@Override
+	public Bean process(Bean item) throws Exception {
+		
+		System.out.println("Processing..." + item);
+		//items.add(item);
+				
+		return item;
+	}
+	
+	public void stampaItems(){
+		
+		/*for(int i=0; i<items.size(); i++){
+			System.out.println("Item " + i+1 + ":" + items.get(i));
+		}*/
+	}
+
+}
