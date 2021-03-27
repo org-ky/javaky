@@ -22,3 +22,8 @@ There are two types of messaging domains in JMS.
    It is like broadcasting. Here, Topic is used as a message oriented middleware that is responsible to hold and deliver messages.
    In PTP model, there is timing dependency between publisher and subscriber.
 
+###### JMS Queue Example
+To develop JMS queue example, you need to install any application server.
+Create on server connection factory named "myQueueConnectionFactory".
+Create on server destination resource named "myQueue".
+After creating JNDI, create server and receiver application. You need to run server and receiver in different console.
