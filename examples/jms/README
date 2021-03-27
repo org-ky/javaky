@@ -1,0 +1,7 @@
+###### Understanding Messaging
+Messaging is a technique to communicate applications or software components.
+JMS is mainly used to send and receive message from one application to another.
+
+###### Requirement of JMS
+Generally, user sends message to application. But, if we want to send message from one application to another, we need to use JMS API.
+Consider a scenario, one application A is running in INDIA and another application B is running in USA. To send message from A application to B, we need to use JMS.
