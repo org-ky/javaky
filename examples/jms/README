@@ -26,4 +26,5 @@ There are two types of messaging domains in JMS.
 To develop JMS queue example, you need to install any application server.
 Create on server connection factory named "myQueueConnectionFactory".
 Create on server destination resource named "myQueue".
-After creating JNDI, create server and receiver application. You need to run server and receiver in different console.
+After creating JNDI, create server and receiver application. 
+You need to run server and receiver in different console.
