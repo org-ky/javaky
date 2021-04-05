@@ -1,0 +1,8 @@
+java:global/EJBProject/SessionBean!com.orgky.examples.EJBProjectBeanRemote
+	java:app/EJBProject/SessionBean!com.orgky.examples.EJBProjectBeanRemote
+	java:module/SessionBean!com.orgky.examples.EJBProjectBeanRemote
+	java:jboss/exported/EJBProject/SessionBean!com.orgky.examples.EJBProjectBeanRemote
+	ejb:/EJBProject/SessionBean!com.orgky.examples.EJBProjectBeanRemote
+	java:global/EJBProject/SessionBean!com.orgky.examples.EJBProjectBeanLocal
+	java:app/EJBProject/SessionBean!com.orgky.examples.EJBProjectBeanLocal
+	java:module/SessionBean!com.orgky.examples.EJBProjectBeanLocal
