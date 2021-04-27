@@ -1,0 +1,26 @@
+Spring MVC provides a dispatcher servlet which receives incoming requests and routes them to appropriate controllers. 
+So it requires declaring this dispatcher servlet in "web.xml" file and configuring URL mapping for the servlet.
+
+<servlet>
+    <servlet-name>SpringController</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/spring-mvc.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+</servlet>
+
+Spring’s dispatcher servlet is implemented by the class "org.springframework.web.servlet.DispatcherServlet". 
+The initialization parameter "contextConfigLocation" tells Spring where to load configuration files. 
+The <load-on-startup> tag tells the servlet container to load this servlet upon start up with highest priority.
+
+<servlet-mapping>
+    <servlet-name>SpringController</servlet-name>
+    <url-pattern>*.htm</url-pattern>
+</servlet-mapping>
+
+That tells the container to route all requests end with htm to Spring’s dispatcher servlet. 
+For example, the following URL will be processed by the dispatcher servlet:
+
+http://localhost:8080/MySpringApp/hello.htm
