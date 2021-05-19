@@ -61,7 +61,7 @@
 
 	</bean>
 
-	<!-- Custom item processor -->
+	<!-- Custom item writer -->
 	<bean id="customWriter" class="org.ky.examples.spring.batch.CustomItemWriter" />
 
 	<!-- Custom item processor -->
