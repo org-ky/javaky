@@ -20,7 +20,7 @@ There are two types of messaging domains in JMS.
  - Publisher/Subscriber Messaging Domain
    In Pub/Sub model, one message is delivered to all the subscribers. 
    It is like broadcasting. Here, Topic is used as a message oriented middleware that is responsible to hold and deliver messages.
-   In PTP model, there is timing dependency between publisher and subscriber.
+   In Pub/Sub model, there is timing dependency between publisher and subscriber.
 
 ###### JMS Queue Example
 To develop JMS queue example, you need to install any application server.
