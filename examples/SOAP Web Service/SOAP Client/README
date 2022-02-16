@@ -8,3 +8,23 @@ I passi sono i seguenti:
 2. Creazione del messaggio da inviare
 3. Preparazione del messaggio da inviare
 4. Invio del messaggio
+
+Un messaggio SOAP non è altro che un documento XML che descrive una richiesta di elaborazione o il risultato di una elaborazione. 
+In particolare, un messaggio SOAP è costituito dai seguenti elementi:
+
+Envelope
+Rappresenta il contenitore del messaggio e costituisce l’elemento root del documento XML
+
+Header
+È un elemento opzionale che contiene informazioni globali sul messaggio; ad esempio, nell’header potrebbe essere specificata la lingua di riferimento del messaggio, 
+la data dell’invio, ecc.
+
+Body
+Rappresenta la richiesta di elaborazione o la risposta derivata da una elaborazione
+
+Fault
+Se presente, fornisce informazioni sugli errori che si sono verificati durante l’elaborazione; questo elemento può essere presente soltanto nei messaggi di risposta
+
+È opportuno evidenziare che SOAP definisce soltanto la struttura dei messaggi non il loro contenuto. 
+I tag per descrivere una richiesta di elaborazione o un risultato vengono definiti in uno schema specifico ed utilizzati all’interno della struttura SOAP sfruttando 
+il meccanismo dei namespace.
