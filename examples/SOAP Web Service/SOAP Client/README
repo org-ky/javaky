@@ -1,5 +1,7 @@
 
 Raccoglie le classi necessarie per l'implementazione di un client SOAP tramite l'utilizzo di Java e Spring Boot.
+Il client invierà al server alcune informazioni, tra cui un file xml, utilizzando il servizio SOAP esposto dal 
+server.
 
 I passi sono i seguenti:
 1. Creazione della classe Client (SenderHTTP) ovvero di colui che invia una richiesta(messaggio) SOAP
